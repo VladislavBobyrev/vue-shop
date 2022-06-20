@@ -1,0 +1,53 @@
+html {
+  display: flex;
+  min-height: -webkit-fill-available;
+  overflow: hidden;
+}
+html.color-theme-in-transition,
+html.color-theme-in-transition * {
+  transition: 200ms;
+  transition-delay: 0;
+}
+
+html[data-theme="dark"] .blend {
+  filter: invert(100%) hue-rotate(180deg);
+  mix-blend-mode: screen;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Alumni Sans";
+  // font-family:"Alumni Sans" "Montserrat";
+  line-height: 1.5;
+  font-size: 1.2rem;
+  color: $color-secondary;
+  background: rgb(32, 85, 97);
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+h2{
+  text-align: center;
+  font-size: 6rem;
+  text-transform: uppercase;
+  color:$bg-primary;
+}

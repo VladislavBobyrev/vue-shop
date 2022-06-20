@@ -1,0 +1,14 @@
+.basket{
+  .card{
+    display: flex;
+    background: rgba(0, 0, 0, 0.481) ;
+    backdrop-filter: blur(7px);
+  }
+  .card-header{
+    align-items: center;
+    gap: 1rem ;
+  }
+  .card-body{
+    display: flex;
+  }
+}

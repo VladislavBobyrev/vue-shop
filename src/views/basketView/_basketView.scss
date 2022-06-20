@@ -1,0 +1,36 @@
+.basket{
+  color: $bg-basic;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.basket {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 29%;
+    right: 15%;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    background: linear-gradient(275deg, #e9db12, #71bfed, #f64f4f);
+    transition: 1s;
+    z-index: -1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 32%;
+    right: 52%;
+    width: 30rem;
+    height: 30rem;
+    border-radius: 50%;
+    background: linear-gradient(275deg, #bd821b, #dce8ee, #231083);
+    transition: 1s;
+    z-index: -1;
+  }
+}

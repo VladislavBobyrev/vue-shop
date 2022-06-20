@@ -1,0 +1,50 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 22rem));
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem 2rem;
+}
+.card {
+  padding: 1rem;
+  border-radius: 15px;
+  background: var(--bg-primary-75);
+  gap: 1rem;
+  justify-content: space-between;
+  backdrop-filter: blur(7px);
+
+  button {
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+
+    &:hover{
+      background: rgb(139, 231, 63)  ;
+    }
+  }
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+
+  .img {
+    width: 6rem;
+    height: 6rem;
+    background: $bg-secondary-50;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.card-body {
+  gap: 0.5rem;
+}
+.card-footer {
+}
+.card__title {
+  font-size: 1.5rem;
+}
+.card__subtitle {
+  font-size: 1.2rem;
+}
