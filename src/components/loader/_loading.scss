@@ -1,0 +1,105 @@
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: -webkit-fill-available;
+  z-index: -1;
+  justify-content: center;
+  align-items: center;
+  background: $bg-basic;
+  transition: .6s;
+  opacity: 0;
+  transform: scale(0.5);
+  border-radius: 50%;
+  box-shadow:20px 20px 20px 10px $bg-accent;
+  
+
+  &.active{
+    display: flex;
+    z-index: 4;
+    opacity: 1;
+    transform: scale(1);
+    border-radius:0%;
+    box-shadow:0px 0px 20px -3px $bg-accent;
+  }
+}
+
+.loader {
+  opacity: .6;
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+  perspective: 9px;
+  animation: space 8s ease-in-out infinite;
+  animation-direction: alternate-reverse;
+}
+@keyframes space {
+  0%, 100%{
+    perspective: 29px;
+  }
+   50%{
+        perspective: 5rem;
+  }
+}
+.loader__inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 50%;
+  filter: url(#wavy) blur(0px);
+
+  &.cssload-one {
+    left: 0%;
+    top: 0%;
+    animation: cssload-rotate-one 1.15s linear infinite;
+    animation-direction:alternate-reverse;
+    animation-duration: .1;
+    border-bottom: 3px solid $bg-accent;
+    box-shadow:0px 0px 8px -3px $bg-accent;
+  }
+  &.cssload-two {
+    right: 0%;
+    top: 0%;
+    animation: cssload-rotate-two 1.15s linear infinite;
+    animation-duration: .2;
+    border-right: 3px solid $bg-accent;
+    box-shadow:0px 0px 8px -3px $bg-accent;
+  }
+  &.cssload-three {
+    right: 0%;
+    bottom: 0%;
+    animation: cssload-rotate-three 1.15s linear infinite;
+    animation-duration: .3;
+    border-top: 3px solid $bg-secondary;
+    box-shadow:0px 0px 8px -3px $bg-secondary;
+
+  }
+}
+@keyframes cssload-rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@keyframes cssload-rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes cssload-rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}

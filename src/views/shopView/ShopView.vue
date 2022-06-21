@@ -11,6 +11,7 @@
 import { defineComponent } from 'vue'
 import AppCard from '@/components/card/AppCard.vue'
 
+
 export default defineComponent({
   name: 'ShopView',
   components: { AppCard },
