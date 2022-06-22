@@ -1,31 +1,39 @@
 <template>
-  <AppLoading :class="[isLoader ? 'active' : '']"></AppLoading>
+  <AppLoading :class="[this.$store.state.isLoader ? 'active' : null]"></AppLoading>
   <the-header/>
   <main>
    <router-view/>
   </main>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import TheHeader from '@/components/header/TheHeader.vue'
 import AppLoading from '@/components/loader/AppLoading.vue'
 import { useStore } from 'vuex'
 
-export default {
+export default defineComponent({
   components: { TheHeader, AppLoading },
   setup()
   {
     const store = useStore()
 
     const { isLoader } = store.state
-    store.dispatch('getCard')
 
-    // останавливаем фон загрузки
-    store.commit('IS_LOADING', false)
+    const load = () =>
+    {
+      // запускаем анимацию загрузки
+      store.commit('IS_LOADING', true)
+      // загружаем товар
+      store.dispatch('getCard')
+      // останавливаем анимацию загрузки
+        .then(() => setTimeout(() => store.commit('IS_LOADING', false), 1000))
+    }
+    load()
 
     return {
       isLoader,
     }
   },
-}
+})
 </script>
