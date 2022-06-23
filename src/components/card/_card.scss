@@ -17,9 +17,10 @@
     border-radius: 5px;
     padding: 0.5rem 1rem;
     cursor: pointer;
+    background: rgb(139, 231, 63);
 
     &:hover{
-      background: rgb(139, 231, 63)  ;
+      background: var(--bg-primary-75);
     }
   }
 }
@@ -47,4 +48,7 @@
 }
 .card__subtitle {
   font-size: 1.2rem;
+}
+.succes.warn{
+  background: rgb(205, 210, 36);
 }

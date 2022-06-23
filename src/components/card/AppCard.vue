@@ -10,20 +10,34 @@
       <p>{{company}}</p>
     </div>
     <div class="card-footer flex-sb">
-      <button class="succes" @click="addBasket">в корзину</button>
+      <button :class="['succes', isBasket ? 'warn' : '' ]" @click="addBasket">{{isBasket ? "добавлено" : "в корзину"}}</button>
       <span>{{id}}</span>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import { useStore } from 'vuex'
 
 export default defineComponent({
   props: ['id', 'username', 'website', 'company'],
   setup(context)
   {
-    console.log(context)
+    const store = useStore()
+    const isBasket = ref(false)
+
+    const addBasket = () =>
+    {
+      store.state.inBasket.push(context)
+      isBasket.value = true
+      store.commit('ADD_CADR_BASKET')
+    }
+
+    return {
+      addBasket,
+      isBasket,
+    }
   },
 })
 </script>
