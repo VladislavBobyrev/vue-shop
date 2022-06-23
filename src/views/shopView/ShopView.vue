@@ -9,7 +9,9 @@
       :website='card.website'
       :company='card.company'
     />
+
   </section>
+  <button class="btn-center" @click="addPage">loading more...</button>
 </template>
 
 <script lang="ts">
@@ -31,10 +33,17 @@ export default defineComponent({
     }
     getAsyncCard()
 
-    const cards = computed(() => (store.state.cards.length > 0 ? store.state.cards : store.state.cards))
+    const cards = computed(() => (store.state.pageItems.length > 0 ? store.state.pageItems : store.state.pageItems))
+
+    const addPage = () =>
+    {
+      store.state.conutPage++
+      store.commit('GET_NEXT_PAGE')
+    }
 
     return {
       cards,
+      addPage,
     }
   },
 })

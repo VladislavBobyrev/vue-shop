@@ -28,6 +28,8 @@ interface Requests {
 export default createStore({
   state: {
     cards: [{}],
+    pageItems: [{}],
+    conutPage: 1,
     inBasket: [],
     isLoader: true,
   },
@@ -41,9 +43,14 @@ export default createStore({
     {
       return state.isLoader = payload
     },
-    ADD_CADR_BASKET(state)
+    UPDATE_CADR_BASKET(state)
     {
       return state.inBasket
+    },
+
+    GET_NEXT_PAGE(state)
+    {
+      state.pageItems = state.cards.slice(0, state.cards.length / 3 * state.conutPage)
     },
   },
   actions: {
@@ -53,6 +60,7 @@ export default createStore({
 
       // передаем загруженные карточки в store
       await commit('SET_CARDS', data)
+      await commit('GET_NEXT_PAGE')
     },
   },
   modules: {

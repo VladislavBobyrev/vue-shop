@@ -31,9 +31,9 @@ export default defineComponent({
     {
       store.state.inBasket.push(context)
       isBasket.value = true
-      store.commit('ADD_CADR_BASKET')
+      store.commit('UPDATE_CADR_BASKET')
     }
-
+    store.commit('GET_NEXT_PAGE')
     return {
       addBasket,
       isBasket,
